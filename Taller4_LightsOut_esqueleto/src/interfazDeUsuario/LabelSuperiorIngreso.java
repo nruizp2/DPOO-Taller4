@@ -20,7 +20,6 @@ public class LabelSuperiorIngreso extends JPanel {
         botonGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 guardarNombre();
-                botonGuardar.setEnabled(false);
             }
         });
 
@@ -40,7 +39,8 @@ public class LabelSuperiorIngreso extends JPanel {
     private void guardarNombre() {
     	if (campoNombre.getText().length() > 0) {
         nombreJugador = campoNombre.getText();
-        JOptionPane.showMessageDialog(this, "Nombre guardado: " + nombreJugador);}
+        JOptionPane.showMessageDialog(this, "Nombre guardado: " + nombreJugador);
+        botonGuardar.setEnabled(false);}
     }
 
     public String getNombreJugador() {

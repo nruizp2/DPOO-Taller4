@@ -30,7 +30,7 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
         botonReiniciar = new JButton("Reiniciar");
         botonTop10 = new BotonTop10(top10).getBoton();
 
-        Dimension d = new Dimension(190, 30);
+        Dimension d = new Dimension(170, 30);
         botonNuevo.setMaximumSize(d);
         botonReiniciar.setMaximumSize(d);
         botonTop10.setMaximumSize(d);

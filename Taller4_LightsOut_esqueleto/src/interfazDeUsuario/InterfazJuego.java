@@ -23,7 +23,7 @@ public class InterfazJuego extends JFrame {
 
         LabelDerechoJuego labelDerechoJuego = new LabelDerechoJuego(top10,this);
         LabelInferiorJuego labelInferiorJuego = new LabelInferiorJuego(nombreJugador);
-        LabelIzquierdoJuego labelIzquierdoJuego = new LabelIzquierdoJuego();
+        LabelIzquierdoJuego labelIzquierdoJuego = new LabelIzquierdoJuego(tablero,tamanioTablero,labelInferiorJuego);
         LabelSuperiorJuego labelSuperiorJuego = new LabelSuperiorJuego(tamanioTablero, dificultad);
 
         

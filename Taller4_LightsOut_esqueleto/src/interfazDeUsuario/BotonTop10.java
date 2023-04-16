@@ -25,7 +25,6 @@ public class BotonTop10 {
     public BotonTop10(Top10 top10) {
         boton = new JButton("TOP 10");
         boton.setBackground(Color.decode("#2a89e0"));
-
         boton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 

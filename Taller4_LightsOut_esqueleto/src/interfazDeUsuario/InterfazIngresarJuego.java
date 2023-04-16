@@ -17,13 +17,16 @@ public class InterfazIngresarJuego extends JFrame{
 
 	private Top10 top10;
 
+
+
+
 	public static void main(String[] args) {
 		new InterfazIngresarJuego();
 	}
 	
 	public InterfazIngresarJuego(){
 		top10 = new Top10();
-		top10.cargarRecords(new File("./data/top10.csv"));
+		top10.cargarRecords(new File("Taller4_LightsOut_esqueleto/data/top10.csv"));
 
 		labelSuperiorIngreso = new LabelSuperiorIngreso();
 		labelIzquierdoIngreso = new LabelIzquierdoIngreso();

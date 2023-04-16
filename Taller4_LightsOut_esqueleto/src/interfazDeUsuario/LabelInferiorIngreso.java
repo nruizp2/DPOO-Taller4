@@ -1,6 +1,7 @@
 package interfazDeUsuario;
 
 import java.awt.BorderLayout;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,6 +14,8 @@ public class LabelInferiorIngreso extends JPanel {
 	private JButton botonIngresar;
 	private BotonTop10 botonTop10;
 	public LabelInferiorIngreso(Top10 top10) {
+		
+		top10.cargarRecords(new File("./data/top10.csv"));
 		botonTop10 = new BotonTop10(top10);
 
 		setLayout(new BorderLayout());
