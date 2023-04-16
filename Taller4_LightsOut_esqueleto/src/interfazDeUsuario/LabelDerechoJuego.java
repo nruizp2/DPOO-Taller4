@@ -14,9 +14,10 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
     private JButton botonReiniciar;
     private JButton botonTop10;
     private InterfazJuego interfazJuego;
+    private Top10  top10;
 
     public LabelDerechoJuego(Top10 top10, InterfazJuego interfazJuego) {
-
+        this.top10 = top10;
         this.interfazJuego = interfazJuego;
 
         setOpaque(true);
@@ -86,6 +87,10 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
 
     public JButton getBotonTop10() {
         return botonTop10;
+    }
+
+    public Top10 getTop10(){
+        return top10;
     }
     
 }

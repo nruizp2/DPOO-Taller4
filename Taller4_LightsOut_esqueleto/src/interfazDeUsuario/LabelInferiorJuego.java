@@ -13,12 +13,26 @@ public class LabelInferiorJuego extends JLabel{
     public LabelInferiorJuego(String nombreJugador) {
         LabelInferiorJuego.nombreJugador = nombreJugador;
         jugadas = 0;
-
-        setText("Jugadas: " + jugadas + ".                                                                                   Jugador: " + nombreJugador + ".");
+        actualizarTexto();
     }
     public void sumarJugada(){
         jugadas++;
+        actualizarTexto();
+    }
+
+    public void reiniciar(){
+        jugadas = 0;
+        actualizarTexto();
+    }
+
+    public void actualizarTexto(){
         setText("Jugadas: " + jugadas + ".                                                                                   Jugador: " + nombreJugador + ".");
     }
+
+    public static String getNombreJugador() {
+        return nombreJugador;
+    }
+
+    
 
 }
