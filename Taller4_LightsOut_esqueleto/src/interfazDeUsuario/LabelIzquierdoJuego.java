@@ -113,14 +113,13 @@ public class LabelIzquierdoJuego extends JLabel implements MouseListener,ActionL
         labelInferiorJuego.sumarJugada();
         if(tablero.tableroIluminado()){
             mouseActivado = false;
-            JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado.");
-
-            int jugadas = labelInferiorJuego.getJugadas();
+            int puntaje = tablero.calcularPuntaje();
+            JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado con " + puntaje + " puntos.");
             String nombre = LabelInferiorJuego.getNombreJugador();
 
             Top10 top10 = labelDerechoJuego.getTop10();
 
-            top10.agregarRegistro(nombre, jugadas);
+            top10.agregarRegistro(nombre, puntaje);
             try {
                 top10.salvarRecords(new File("Taller4_LightsOut_esqueleto/data/top10.csv"));
             } catch (FileNotFoundException e1) {
@@ -156,7 +155,7 @@ public class LabelIzquierdoJuego extends JLabel implements MouseListener,ActionL
         if(e.getSource() == labelDerechoJuego.getBotonReiniciar()){
             tablero.reiniciar();
             repaint();
-
+            mouseActivado = true;
             labelInferiorJuego.reiniciar();
         }
     }
