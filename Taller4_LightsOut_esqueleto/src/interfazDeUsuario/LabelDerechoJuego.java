@@ -16,8 +16,9 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
     private InterfazJuego interfazJuego;
     private Top10  top10;
 
-    public LabelDerechoJuego(Top10 top10, InterfazJuego interfazJuego) {
+    public LabelDerechoJuego(Top10 top10, InterfazJuego interfazJuego, JButton botonReiniciar) {
         this.top10 = top10;
+        this.botonReiniciar = botonReiniciar;
         this.interfazJuego = interfazJuego;
 
         setOpaque(true);
@@ -28,23 +29,18 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
         add(filler1);
 
         botonNuevo = new JButton("Nuevo/Cambiar Jugador");
-        botonReiniciar = new JButton("Reiniciar");
         botonTop10 = new BotonTop10(top10).getBoton();
 
         Dimension d = new Dimension(170, 30);
         botonNuevo.setMaximumSize(d);
-        botonReiniciar.setMaximumSize(d);
         botonTop10.setMaximumSize(d);
         botonNuevo.setPreferredSize(d);
-        botonReiniciar.setPreferredSize(d);
         botonTop10.setPreferredSize(d);
 
         botonNuevo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        botonReiniciar.setAlignmentX(Component.CENTER_ALIGNMENT);
         botonTop10.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         botonNuevo.setBackground(Color.decode("#2a89e0"));
-        botonReiniciar.setBackground(Color.decode("#2a89e0"));
 
         botonNuevo.addActionListener(this);
 
@@ -58,7 +54,6 @@ public class LabelDerechoJuego extends JLabel implements ActionListener{
         add(filler2);
 
         botonNuevo.setForeground(Color.WHITE);
-        botonReiniciar.setForeground(Color.WHITE);
         botonTop10.setForeground(Color.WHITE);
 
         setPreferredSize(new Dimension(200, 100));

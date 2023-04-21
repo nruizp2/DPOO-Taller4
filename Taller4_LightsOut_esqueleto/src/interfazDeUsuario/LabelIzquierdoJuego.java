@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -23,21 +24,27 @@ public class LabelIzquierdoJuego extends JLabel implements MouseListener,ActionL
 
     private Tablero tablero;
     private int ladoTablero;
-    private LabelInferiorJuego labelInferiorJuego;
-    private LabelDerechoJuego labelDerechoJuego;
+    private JButton botonReiniciar;
     private boolean mouseActivado;
     private int dificultad;
+    private Jugadas jugadas;
+    private Top10 top10;
 
-    public LabelIzquierdoJuego(Tablero tablero, int ladoTablero, LabelInferiorJuego labelInferiorJuego, LabelDerechoJuego labelDerechoJuego, int dificultad) {
+    public Jugadas getJugadas() {
+        return jugadas;
+    }
+
+    public LabelIzquierdoJuego(Tablero tablero, int ladoTablero, Jugadas jugadas, JButton botonReiniciar, int dificultad, Top10 top10) {
         this.tablero = tablero;
         this.ladoTablero = ladoTablero;
-        this.labelInferiorJuego = labelInferiorJuego;
-        this.labelDerechoJuego = labelDerechoJuego;
+        this.botonReiniciar = botonReiniciar;
         this.dificultad = dificultad;
+        this.jugadas = jugadas;
+        this.top10 = top10;
 
         mouseActivado = true;
 
-        labelDerechoJuego.getBotonReiniciar().addActionListener(this);
+        botonReiniciar.addActionListener(this);
 
         setPreferredSize(new Dimension(380, 320));
         addMouseListener(this);
@@ -110,15 +117,12 @@ public class LabelIzquierdoJuego extends JLabel implements MouseListener,ActionL
         int[] casilla = convertirCoordenadasACasilla(click_x, click_y);
         tablero.jugar(casilla[1], casilla[0]);
         repaint();
-        labelInferiorJuego.sumarJugada();
+        jugadas.sumarJugada();
         if(tablero.tableroIluminado()){
             mouseActivado = false;
             int puntaje = tablero.calcularPuntaje();
             JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado con " + puntaje + " puntos.");
             String nombre = LabelInferiorJuego.getNombreJugador();
-
-            Top10 top10 = labelDerechoJuego.getTop10();
-
             top10.agregarRegistro(nombre, puntaje);
             try {
                 top10.salvarRecords(new File("Taller4_LightsOut_esqueleto/data/top10.csv"));
@@ -152,11 +156,11 @@ public class LabelIzquierdoJuego extends JLabel implements MouseListener,ActionL
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == labelDerechoJuego.getBotonReiniciar()){
+        if(e.getSource() == botonReiniciar){
             tablero.reiniciar();
             repaint();
+            jugadas.reiniciar();
             mouseActivado = true;
-            labelInferiorJuego.reiniciar();
         }
     }
 

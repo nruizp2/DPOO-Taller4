@@ -20,11 +20,14 @@ public class InterfazJuego extends JFrame {
 
         tablero = new Tablero(tamanioTablero);
         tablero.desordenar(dificultad);
-
-        LabelDerechoJuego labelDerechoJuego = new LabelDerechoJuego(top10,this);
-        LabelInferiorJuego labelInferiorJuego = new LabelInferiorJuego(nombreJugador);
-        LabelIzquierdoJuego labelIzquierdoJuego = new LabelIzquierdoJuego(tablero,tamanioTablero,labelInferiorJuego, labelDerechoJuego,dificultad);
+        Jugadas jugadas = new Jugadas();
+        BotonReiniciar botonReiniciar = new BotonReiniciar();
+        LabelDerechoJuego labelDerechoJuego = new LabelDerechoJuego(top10,this,botonReiniciar.getBoton());
+        LabelIzquierdoJuego labelIzquierdoJuego = new LabelIzquierdoJuego(tablero,tamanioTablero,jugadas, botonReiniciar.getBoton(),dificultad,top10);
+        LabelInferiorJuego labelInferiorJuego = new LabelInferiorJuego(nombreJugador,jugadas);
         LabelSuperiorJuego labelSuperiorJuego = new LabelSuperiorJuego(tamanioTablero, dificultad);
+
+        jugadas.setLabelInferiorJuego(labelInferiorJuego);
 
         
         setTitle("Lights out");

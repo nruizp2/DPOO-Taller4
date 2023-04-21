@@ -4,29 +4,20 @@ import javax.swing.JLabel;
 
 public class LabelInferiorJuego extends JLabel{
 
-    private int jugadas;
+    private Jugadas jugadas;
     private static String nombreJugador;
-    public int getJugadas() {
+    
+    public Jugadas getJugadas() {
         return jugadas;
     }
 
-    public LabelInferiorJuego(String nombreJugador) {
+    public LabelInferiorJuego(String nombreJugador, Jugadas jugadas) {
         LabelInferiorJuego.nombreJugador = nombreJugador;
-        jugadas = 0;
+        this.jugadas = jugadas;
         actualizarTexto();
     }
-    public void sumarJugada(){
-        jugadas++;
-        actualizarTexto();
-    }
-
-    public void reiniciar(){
-        jugadas = 0;
-        actualizarTexto();
-    }
-
     public void actualizarTexto(){
-        setText("Jugadas: " + jugadas + ".                                                                                   Jugador: " + nombreJugador + ".");
+        setText("Jugadas: " + jugadas.getJugadas() + ".                                                                                   Jugador: " + nombreJugador + ".");
     }
 
     public static String getNombreJugador() {
