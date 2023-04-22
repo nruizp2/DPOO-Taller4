@@ -14,6 +14,7 @@ public class InterfazIngresarJuego extends JFrame{
 	private LabelIzquierdoIngreso labelIzquierdoIngreso;
 	private LabelInferiorIngreso labelInferiorIngreso;
 	private LabelDerechoIngreso labelDerechoIngreso;
+	private InterfazJuego interfazJuego;
 
 	private Top10 top10;
 
@@ -70,6 +71,9 @@ public class InterfazIngresarJuego extends JFrame{
 			}
 		});
 
+	}
+	public InterfazJuego getInterfazJuego() {
+		return interfazJuego;
 	}
 
 }

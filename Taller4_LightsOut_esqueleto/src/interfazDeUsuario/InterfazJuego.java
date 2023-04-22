@@ -11,6 +11,13 @@ import uniandes.dpoo.taller4.modelo.Top10;
 public class InterfazJuego extends JFrame {
 
     private Tablero tablero;
+    BotonReiniciar botonReiniciar;
+    LabelDerechoJuego labelDerechoJuego;
+    LabelIzquierdoJuego labelIzquierdoJuego;
+    LabelInferiorJuego labelInferiorJuego;
+    LabelSuperiorJuego labelSuperiorJuego;
+
+    Jugadas jugadas;
     
     public Tablero getTablero() {
         return tablero;
@@ -20,7 +27,7 @@ public class InterfazJuego extends JFrame {
 
         tablero = new Tablero(tamanioTablero);
         tablero.desordenar(dificultad);
-        Jugadas jugadas = new Jugadas();
+        jugadas = new Jugadas();
         BotonReiniciar botonReiniciar = new BotonReiniciar();
         LabelDerechoJuego labelDerechoJuego = new LabelDerechoJuego(top10,this,botonReiniciar.getBoton());
         LabelIzquierdoJuego labelIzquierdoJuego = new LabelIzquierdoJuego(tablero,tamanioTablero,jugadas, botonReiniciar.getBoton(),dificultad,top10);
